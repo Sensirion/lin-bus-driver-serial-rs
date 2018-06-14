@@ -1,0 +1,6 @@
+[package]
+name = "lin-bus-driver-serial"
+version = "0.1.0"
+authors = ["Raphael Nestler <raphael.nestler@sensirion.com>"]
+
+[dependencies]
