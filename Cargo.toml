@@ -4,3 +4,5 @@ version = "0.1.0"
 authors = ["Raphael Nestler <raphael.nestler@sensirion.com>"]
 
 [dependencies]
+lin-bus = { git = "https://github.com/Sensirion/lin-bus-rs.git" }
+serial = "^0.4"
