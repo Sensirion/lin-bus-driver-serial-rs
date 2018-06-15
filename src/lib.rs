@@ -1,11 +1,11 @@
 extern crate lin_bus;
 extern crate serial;
 
+use lin_bus::driver;
+use serial::{SerialPort, SystemPort};
+use std::io::{Read, Write};
 use std::thread::sleep;
 use std::time::Duration;
-use lin_bus::driver;
-use serial::{SystemPort, SerialPort};
-use std::io::{Read, Write};
 
 pub struct SerialLin(pub SystemPort);
 
@@ -34,10 +34,8 @@ impl From<std::io::Error> for SerialError {
     }
 }
 
-
 impl driver::Master for SerialLin {
-
-    type Error=SerialError;
+    type Error = SerialError;
 
     fn send_wakeup(&mut self) -> Result<(), SerialError> {
         self.0.set_timeout(Duration::from_millis(1000))?;
@@ -74,7 +72,6 @@ impl driver::Master for SerialLin {
             settings.set_flow_control(serial::FlowNone);
             Ok(())
         })?;
-
 
         self.0.write(&[0])?;
         // wait a short time before switching baudrate again, otherwise the zero byte won't be sent
@@ -118,7 +115,6 @@ impl driver::Master for SerialLin {
         }
     }
 }
-
 
 #[cfg(test)]
 mod tests {
