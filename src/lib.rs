@@ -70,9 +70,10 @@ impl driver::Master for SerialLin {
     fn send_header(&mut self, pid: PID) -> Result<(), SerialError> {
         self.0.set_timeout(Duration::from_millis(1000))?;
 
+        // Sending with 9.6kB with 1 start and 6 data bits leads to a low time of 14 19.2kB bits
         self.0.reconfigure(&|settings| {
             try!(settings.set_baud_rate(serial::Baud9600));
-            settings.set_char_size(serial::Bits7);
+            settings.set_char_size(serial::Bits6);
             settings.set_parity(serial::ParityNone);
             settings.set_stop_bits(serial::Stop1);
             settings.set_flow_control(serial::FlowNone);
