@@ -1,5 +1,5 @@
 pub extern crate lin_bus;
-extern crate serial;
+pub extern crate serial;
 
 use lin_bus::driver;
 use serial::{SerialPort, SystemPort};
