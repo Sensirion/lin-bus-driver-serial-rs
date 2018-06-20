@@ -28,6 +28,12 @@ impl From<SerialError> for driver::Error {
     }
 }
 
+impl From<driver::Error> for SerialError {
+    fn from(error: driver::Error) -> SerialError {
+        SerialError::LinError(error)
+    }
+}
+
 impl From<std::io::Error> for SerialError {
     fn from(error: std::io::Error) -> SerialError {
         SerialError::SerialError(serial::Error::from(error))
