@@ -1,4 +1,4 @@
-extern crate lin_bus;
+pub extern crate lin_bus;
 extern crate serial;
 
 use lin_bus::driver;
