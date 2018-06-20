@@ -1,7 +1,7 @@
 pub extern crate lin_bus;
 pub extern crate serial;
 
-use lin_bus::driver;
+use lin_bus::{PID, driver};
 use serial::{SerialPort, SystemPort};
 use std::io::{Read, Write};
 use std::thread::sleep;
@@ -67,7 +67,7 @@ impl driver::Master for SerialLin {
         }
     }
 
-    fn send_header(&mut self, pid: u8) -> Result<(), SerialError> {
+    fn send_header(&mut self, pid: PID) -> Result<(), SerialError> {
         self.0.set_timeout(Duration::from_millis(1000))?;
 
         self.0.reconfigure(&|settings| {
@@ -93,12 +93,12 @@ impl driver::Master for SerialLin {
             Ok(())
         })?;
 
-        self.0.write(&[0x55, pid])?;
+        self.0.write(&[0x55, pid.get()])?;
 
         let mut buf = [0; 2];
         self.0.read_exact(&mut buf)?;
 
-        if buf != [0x55, pid] {
+        if buf != [0x55, pid.get()] {
             Err(SerialError::LinError(driver::Error::PhysicalBus))
         } else {
             Ok(())
