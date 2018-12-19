@@ -52,7 +52,7 @@ impl driver::Master for SerialLin {
         self.0.set_timeout(Duration::from_millis(1000))?;
 
         self.0.reconfigure(&|settings| {
-            try!(settings.set_baud_rate(serial::Baud9600));
+            settings.set_baud_rate(serial::Baud9600)?;
             settings.set_char_size(serial::Bits7);
             settings.set_parity(serial::ParityNone);
             settings.set_stop_bits(serial::Stop1);
@@ -76,7 +76,7 @@ impl driver::Master for SerialLin {
         self.0.set_timeout(Duration::from_millis(1000))?;
 
         self.0.reconfigure(&|settings| {
-            try!(settings.set_baud_rate(serial::Baud9600));
+            settings.set_baud_rate(serial::Baud9600)?;
             settings.set_char_size(serial::Bits7);
             settings.set_parity(serial::ParityNone);
             settings.set_stop_bits(serial::Stop1);
@@ -90,7 +90,7 @@ impl driver::Master for SerialLin {
         sleep(Duration::from_millis(1));
 
         self.0.reconfigure(&|settings| {
-            try!(settings.set_baud_rate(serial::Baud19200));
+            settings.set_baud_rate(serial::Baud19200)?;
             settings.set_char_size(serial::Bits8);
             settings.set_parity(serial::ParityNone);
             settings.set_stop_bits(serial::Stop1);

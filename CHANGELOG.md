@@ -4,6 +4,9 @@ This project follows [semantic versioning](https://semver.org/).
 
 ## [Unreleased]
 
+ * changed: Use Rust 2018 edition syntax
+   ([#7](https://github.com/Sensirion/lin-bus-driver-serial-rs/pull/7))
+
 ## [0.1.1]
 
  * changed: Properly translate serial errors to lin bus errors
