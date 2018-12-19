@@ -1,8 +1,8 @@
 extern crate lin_bus_driver_serial;
 
-use lin_bus_driver_serial::SerialLin;
-use lin_bus_driver_serial::serial as serial;
 use lin_bus_driver_serial::lin_bus::{Master, PID};
+use lin_bus_driver_serial::serial;
+use lin_bus_driver_serial::SerialLin;
 
 fn main() {
     let pid = PID::from_id(42);
