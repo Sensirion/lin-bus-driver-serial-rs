@@ -8,6 +8,7 @@ keywords = ["LIN", "local", "interconnect", "network", "serial"]
 categories = ["hardware-support"]
 license = "BSD-3-Clause"
 repository = "https://github.com/Sensirion/lin-bus-driver-serial-rs"
+edtion = "2018"
 
 [dependencies]
 lin-bus = "^0.1"
