@@ -25,12 +25,10 @@ impl From<SerialError> for driver::Error {
     fn from(error: SerialError) -> driver::Error {
         match error {
             SerialError::LinError(lin_error) => lin_error,
-            SerialError::SerialError(ser_error) => {
-                match ser_error.kind() {
-                    serial::ErrorKind::Io(std::io::ErrorKind::TimedOut) => driver::Error::Timeout,
-                    _ => driver::Error::PhysicalBus,
-                }
-            }
+            SerialError::SerialError(ser_error) => match ser_error.kind() {
+                serial::ErrorKind::Io(std::io::ErrorKind::TimedOut) => driver::Error::Timeout,
+                _ => driver::Error::PhysicalBus,
+            },
         }
     }
 }
