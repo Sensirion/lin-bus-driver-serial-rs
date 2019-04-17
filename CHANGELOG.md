@@ -6,6 +6,8 @@ This project follows [semantic versioning](https://semver.org/).
 
  * changed: Use Rust 2018 edition syntax
    ([#7](https://github.com/Sensirion/lin-bus-driver-serial-rs/pull/7))
+ * fixed: Allow sending a frame with the maximal permissible payload (8b)
+ * changed: Depend on lin-bus 0.2
 
 ## [0.1.1]
 

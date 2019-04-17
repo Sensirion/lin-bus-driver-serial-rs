@@ -115,9 +115,12 @@ impl driver::Master for SerialLin {
         Ok(())
     }
     fn write(&mut self, data: &[u8]) -> Result<(), SerialError> {
-        assert!(data.len() < 8, "Data must be less than 8 bytes");
+        assert!(
+            data.len() <= 9,
+            "Data must be at most 8 bytes + 1 checksum byte"
+        );
         self.0.write(data)?;
-        let mut buf = [0; 8];
+        let mut buf = [0; 9];
         self.0.read_exact(&mut buf[0..data.len()])?;
         if &buf[0..data.len()] != data {
             Err(SerialError::LinError(driver::Error::PhysicalBus))
