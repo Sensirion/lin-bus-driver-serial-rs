@@ -1,6 +1,6 @@
 [package]
 name = "lin-bus-driver-serial"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Raphael Nestler <raphael.nestler@sensirion.com>"]
 description = "LIN bus driver implementation over a serial port"
 readme = "README.md"

@@ -4,6 +4,8 @@ This project follows [semantic versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0]
+
  * changed: Use Rust 2018 edition syntax
    ([#7](https://github.com/Sensirion/lin-bus-driver-serial-rs/pull/7))
  * fixed: Allow sending a frame with the maximal permissible payload (8b)
@@ -18,5 +20,6 @@ This project follows [semantic versioning](https://semver.org/).
 
  * First crates.io release
 
-[Unreleased]: https://github.com/Sensirion/lin-bus-driver-serial-rs/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/Sensirion/lin-bus-driver-serial-rs/compare/v0.2.0...HEAD
+[0.1.2]: https://github.com/Sensirion/lin-bus-driver-serial-rs/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/Sensirion/lin-bus-driver-serial-rs/compare/v0.1.0...v0.1.1
