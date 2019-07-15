@@ -4,6 +4,8 @@ This project follows [semantic versioning](https://semver.org/).
 
 ## [Unreleased]
 
+ * changed: Depend on lin-bus crate 0.3
+
 ## [0.2.0] (2019-05-03)
 
  * changed: Use Rust 2018 edition syntax
