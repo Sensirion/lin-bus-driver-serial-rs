@@ -4,6 +4,9 @@ This project follows [semantic versioning](https://semver.org/).
 
 ## [Unreleased]
 
+ * changed: Depend on lin-bus crate 0.4
+ * breaking: Minimal required Rust version changed to 1.57.0
+
 ## [0.3.0] (2019-07-16)
 
  * changed: Depend on lin-bus crate 0.3
