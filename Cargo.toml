@@ -11,5 +11,5 @@ repository = "https://github.com/Sensirion/lin-bus-driver-serial-rs"
 edition = "2018"
 
 [dependencies]
-lin-bus = "^0.3"
+lin-bus = "^0.4"
 serial = "^0.4"
