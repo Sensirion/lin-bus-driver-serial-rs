@@ -60,7 +60,7 @@ impl driver::Master for SerialLin {
             Ok(())
         })?;
 
-        self.0.write(&[0])?;
+        self.0.write_all(&[0])?;
         let mut buf = [0; 1];
         self.0.read_exact(&mut buf)?;
 
@@ -84,7 +84,7 @@ impl driver::Master for SerialLin {
             Ok(())
         })?;
 
-        self.0.write(&[0])?;
+        self.0.write_all(&[0])?;
         // wait a short time before switching baudrate again, otherwise the zero byte won't be sent
         // with the lower baudrate
         sleep(Duration::from_millis(1));
@@ -98,7 +98,7 @@ impl driver::Master for SerialLin {
             Ok(())
         })?;
 
-        self.0.write(&[0x55, pid.get()])?;
+        self.0.write_all(&[0x55, pid.get()])?;
 
         let mut buf = [0; 2];
         self.0.read_exact(&mut buf)?;
@@ -119,7 +119,7 @@ impl driver::Master for SerialLin {
             data.len() <= 9,
             "Data must be at most 8 bytes + 1 checksum byte"
         );
-        self.0.write(data)?;
+        self.0.write_all(data)?;
         let mut buf = [0; 9];
         self.0.read_exact(&mut buf[0..data.len()])?;
         if &buf[0..data.len()] != data {

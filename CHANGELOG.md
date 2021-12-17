@@ -6,6 +6,8 @@ This project follows [semantic versioning](https://semver.org/).
 
  * changed: Depend on lin-bus crate 0.4
  * breaking: Minimal required Rust version changed to 1.57.0
+ * fixed: Always write data completly
+   ([#14](https://github.com/Sensirion/lin-bus-driver-serial-rs/pull/14))
 
 ## [0.3.0] (2019-07-16)
 
